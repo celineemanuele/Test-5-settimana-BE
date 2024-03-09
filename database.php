@@ -44,10 +44,9 @@ if (!$mysqli->query($sql)) {
 $sql = 'SELECT * FROM users;';
 $res = $mysqli->query($sql);
 if ($res->num_rows === 0) {
-    $password = password_hash('Pa$$w0rd!', PASSWORD_DEFAULT);
     // Inserisco dati in una tabella
-    $sql = 'INSERT INTO users (firstname, lastname, city, email, password) 
-            VALUES ("Mario", "Rossi", "Roma", "m.rossi@example.com", "'.$password.'");';
+    $sql = 'INSERT INTO users (firstname, lastname, email, password, admin) 
+            VALUES ("Giulia", "Rossi", "giugiu@mail.com", "' . "giugiu" . '", 1);';
     if (!$mysqli->query($sql)) {
         echo ($mysqli->connect_error);
     } else {
